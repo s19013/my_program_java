@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 public class  master
 {
-  public static int how_meny;
   public static ArrayList<String> box;
   public static int limit;
+  public static int how_meny;
   public static int how_meny_com1;
   public static int how_meny_com2;
   public static int how_meny_com3;
