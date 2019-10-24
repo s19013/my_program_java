@@ -3,6 +3,7 @@ public class  soda
 {
   public static int limit;
   public static int shake_count;
+  public static int once = 0;
 
   public static void start()
   {
@@ -22,7 +23,19 @@ public class  soda
     {
       master.gameset(name);
     }
+    else if (limit <= 40)
+    {
+      only_once();
+    }
   }
 
+  public static void only_once()
+  {
+    if (once == 0)
+    {
+      System.out.println("そろそろ破裂しそうだ");
+      once ++;
+    }
+  }
 
 }

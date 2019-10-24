@@ -20,6 +20,7 @@ public class human
     }
     else
     {
+      System.out.println("あなたは" + shake + "回振った");
       soda.set_shake_count(name,shake);
     }
   }

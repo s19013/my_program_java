@@ -17,6 +17,8 @@ public class  master
   public static human p = new human("あなた");
   public static com1 c1 = new com1("c1-1");
   public static com2 c2 = new com2("c2-1");
+  public static com3 c3 = new com3("c3-1");
+
 
   public static void gamestart()
   {
@@ -24,6 +26,7 @@ public class  master
     box.add("p");
     box.add("c1");
     box.add("c2");
+    box.add("c3");
     Collections.shuffle(box);
   }
 
@@ -33,6 +36,7 @@ public class  master
     shake(box.get(0));
     shake(box.get(1));
     shake(box.get(2));
+    shake(box.get(3));
     game();
   }
 
@@ -52,12 +56,16 @@ public class  master
         case "c2":
         c2.shake();
         break;
+        case "c3":
+        c3.shake();
+        break;
       }
     }
   }
 
   public static void gameset(String name)
   {
+    System.out.println("爆発した");
     System.out.println(name + "の負け");
     System.exit(0);
 
