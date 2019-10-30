@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Collections;
 
 public class master
 {
   public static List<String> r1 = new ArrayList<String>();
   public static List<String> r2 = new ArrayList<String>();
   public static List<String> r3 = new ArrayList<String>();
+  public static List<String> box = new ArrayList<String>();
   public static List<Integer> ir1 = new ArrayList<Integer>();
   public static List<Integer> ir2 = new ArrayList<Integer>();
   public static List<Integer> ir3 = new ArrayList<Integer>();
@@ -36,9 +38,13 @@ public class master
       ir2.add(0);
       ir3.add(0);
     }
-    Random rand = new Random();
-    mem = rand.nextInt(2);
+  }
 
+  public static void member()
+  {
+    box.add("y");
+    box.add("c");
+    Collections.shuffle(box);
   }
 
   public static void gamestart()
@@ -48,8 +54,26 @@ public class master
     you.in();
     pri();
     check();
-    db();
   }
+
+  // public static void gamestart()
+  // {
+  //   for (int i=0;i<2 ;i++)
+  //   {
+  //     String who = box.get(i);
+  //     switch (who)
+  //     {
+  //       case "y":
+  //       you.in();
+  //       break;
+  //       case "c":
+  //       com.in();
+  //       break;
+  //     }
+  //     pri();
+  //     check();
+  //   }
+  // }
 
   public static void pri()
   {
@@ -158,7 +182,34 @@ public class master
           break;
       }
     }
+    if  (
+          rs1 == 3 ||
+          rs2 == 3 ||
+          rs3 == 3 ||
+          cs1 == 3 ||
+          cs2 == 3 ||
+          cs3 == 3 ||
+          xs1 == 3 ||
+          xs2 == 3
+        )
+    {
+      winner.youwin();
+    }
+    else if (
+              rs1 == -3 ||
+              rs2 == -3 ||
+              rs3 == -3 ||
+              cs1 == -3 ||
+              cs2 == -3 ||
+              cs3 == -3 ||
+              xs1 == -3 ||
+              xs2 == -3
+            )
+    {
+      winner.comwin();
+    }
   }
+
 
   public static void db()
   {
