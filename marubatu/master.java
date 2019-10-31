@@ -12,15 +12,9 @@ public class master
   public static List<Integer> ir1 = new ArrayList<Integer>();
   public static List<Integer> ir2 = new ArrayList<Integer>();
   public static List<Integer> ir3 = new ArrayList<Integer>();
-  public static int rs1;
-  public static int rs2;
-  public static int rs3;
-  public static int cs1;
-  public static int cs2;
-  public static int cs3;
-  public static int xs1;
-  public static int xs2;
+
   public static int mem;
+  public static int turn = 0;
 
 
   // public static int x;
@@ -47,33 +41,32 @@ public class master
     Collections.shuffle(box);
   }
 
-  public static void gamestart()
-  {
-    you.in();
-    you.in();
-    you.in();
-    pri();
-    check();
-  }
-
   // public static void gamestart()
   // {
-  //   for (int i=0;i<2 ;i++)
-  //   {
-  //     String who = box.get(i);
-  //     switch (who)
-  //     {
-  //       case "y":
-  //       you.in();
-  //       break;
-  //       case "c":
-  //       com.in();
-  //       break;
-  //     }
-  //     pri();
-  //     check();
-  //   }
+  //   you.in();
+  //   you.in();
+  //   you.in();
+  //   pri();
+  //   check();
   // }
+
+  public static void gameloop()
+  {
+    for (int i=0;i<2 ;i++)
+    {
+      String who = box.get(i);
+      switch (who)
+      {
+        case "y":
+        you.in();
+        break;
+        case "c":
+        com.in();
+        break;
+      }
+    }
+    gameloop();
+  }
 
   public static void pri()
   {
@@ -127,92 +120,107 @@ public class master
         }
         break;
     }
+    System.out.println("");
+    pri();
+    check();
+    turn ++;
+
   }
 
   public static void comset(int x,int y)
   {
-    x--;
-    y--;
     switch (y)
     {
       case 1:
-        r1.set(x, "x");
-        ir1.set(x, -1);
+        if (ir1.get(x)==0)
+        {
+
+          r1.set(x, "x");
+          ir1.set(x, -1);
+        }
+        else
+        {
+          com.in();
+        }
         break;
       case 2:
-        r2.set(x, "x");
-        ir2.set(x, -1);
+        if (ir2.get(x)==0)
+        {
+
+          r2.set(x, "x");
+          ir2.set(x, -1);
+        }
+        else
+        {
+          com.in();
+        }
         break;
       case 3:
-        r3.set(x, "x");
-        ir3.set(x, -1);
+        if (ir3.get(x)==0)
+        {
+
+          r3.set(x, "x");
+          ir3.set(x, -1);
+        }
+        else
+        {
+          com.in();
+        }
         break;
     }
+    System.out.println("");
+    pri();
+    check();
+    turn ++;
+
   }
 
   public static void check()
   {
-    for(int i = 0; i <3; i++)
+    if (
+        ((ir1.get(0)==ir1.get(1)) && (ir1.get(0)==ir1.get(2)) && (ir1.get(0)>0)) ||
+        ((ir2.get(0)==ir2.get(1)) && (ir2.get(0)==ir2.get(2)) && (ir2.get(0)>0)) ||
+        ((ir3.get(0)==ir3.get(1)) && (ir3.get(0)==ir3.get(2)) && (ir3.get(0)>0)) ||
+
+        ((ir1.get(0)==ir3.get(0)) && (ir1.get(0)==ir2.get(0)) && (ir1.get(0)>0)) ||
+        ((ir1.get(1)==ir3.get(1)) && (ir1.get(1)==ir2.get(1)) && (ir1.get(1)>0)) ||
+        ((ir1.get(2)==ir3.get(2)) && (ir1.get(2)==ir2.get(2)) && (ir1.get(2)>0)) ||
+
+        ((ir1.get(0)==ir2.get(1)) && (ir3.get(2)==ir2.get(1)) && (ir1.get(0)>0)) ||
+        ((ir1.get(2)==ir2.get(1)) && (ir3.get(0)==ir2.get(1)) && (ir1.get(2)>0))
+       )
     {
-      rs1 += ir1.get(i);
-      rs2 += ir2.get(i);
-      rs3 += ir3.get(i);
-      switch (i)
-      {
-        case 0:
-          cs1 += ir1.get(0);
-          cs2 += ir1.get(1);
-          cs3 += ir1.get(2);
-          xs1 += ir1.get(0);
-          xs2 += ir1.get(2);
-          break;
-        case 1:
-          cs1 += ir2.get(0);
-          cs2 += ir2.get(1);
-          cs3 += ir2.get(2);
-          xs1 += ir2.get(1);
-          xs2 += ir2.get(1);
-          break;
-        case 2:
-          cs1 += ir3.get(0);
-          cs2 += ir3.get(1);
-          cs3 += ir3.get(2);
-          xs1 += ir3.get(2);
-          xs2 += ir3.get(0);
-          break;
-      }
-    }
-    if  (
-          rs1 == 3 ||
-          rs2 == 3 ||
-          rs3 == 3 ||
-          cs1 == 3 ||
-          cs2 == 3 ||
-          cs3 == 3 ||
-          xs1 == 3 ||
-          xs2 == 3
-        )
-    {
+      db();
       winner.youwin();
     }
     else if (
-              rs1 == -3 ||
-              rs2 == -3 ||
-              rs3 == -3 ||
-              cs1 == -3 ||
-              cs2 == -3 ||
-              cs3 == -3 ||
-              xs1 == -3 ||
-              xs2 == -3
+      ((ir1.get(0)==ir1.get(1)) && (ir1.get(0)==ir1.get(2)) && (ir1.get(0)<0)) ||
+      ((ir2.get(0)==ir2.get(1)) && (ir2.get(0)==ir2.get(2)) && (ir2.get(0)<0)) ||
+      ((ir3.get(0)==ir3.get(1)) && (ir3.get(0)==ir3.get(2)) && (ir3.get(0)<0)) ||
+      ((ir1.get(0)==ir3.get(0)) && (ir1.get(0)==ir2.get(0)) && (ir1.get(0)<0)) ||
+      ((ir1.get(1)==ir3.get(1)) && (ir1.get(1)==ir2.get(1)) && (ir1.get(1)<0)) ||
+      ((ir1.get(2)==ir3.get(2)) && (ir1.get(2)==ir2.get(2)) && (ir1.get(2)<0)) ||
+      ((ir1.get(0)==ir2.get(1)) && (ir3.get(2)==ir2.get(1)) && (ir1.get(0)<0)) ||
+      ((ir1.get(2)==ir2.get(1)) && (ir3.get(0)==ir2.get(1)) && (ir1.get(2)<0))
             )
     {
+      db();
       winner.comwin();
+    }
+    if (turn==9)
+    {
+
     }
   }
 
 
   public static void db()
   {
+    System.out.print("turn=");
+    System.out.println(turn);
+    System.out.println(ir1);
+    System.out.println(ir2);
+    System.out.println(ir3);
     System.out.print("rs1=");
     System.out.println(rs1);
     System.out.print("rs2=");
