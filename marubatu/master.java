@@ -58,6 +58,7 @@ public class master
       switch (who)
       {
         case "y":
+        pri();
         you.in();
         break;
         case "c":
@@ -86,6 +87,7 @@ public class master
 
           r1.set(x, "o");
           ir1.set(x, 1);
+          turn ++;
         }
         else
         {
@@ -99,6 +101,7 @@ public class master
 
           r2.set(x, "o");
           ir2.set(x, 1);
+          turn ++;
         }
         else
         {
@@ -112,6 +115,7 @@ public class master
 
           r3.set(x, "o");
           ir3.set(x, 1);
+          turn ++;
         }
         else
         {
@@ -121,10 +125,7 @@ public class master
         break;
     }
     System.out.println("");
-    pri();
     check();
-    turn ++;
-
   }
 
   public static void comset(int x,int y)
@@ -137,6 +138,7 @@ public class master
 
           r1.set(x, "x");
           ir1.set(x, -1);
+          turn ++;
         }
         else
         {
@@ -149,6 +151,7 @@ public class master
 
           r2.set(x, "x");
           ir2.set(x, -1);
+          turn ++;
         }
         else
         {
@@ -161,6 +164,8 @@ public class master
 
           r3.set(x, "x");
           ir3.set(x, -1);
+          turn ++;
+
         }
         else
         {
@@ -169,9 +174,7 @@ public class master
         break;
     }
     System.out.println("");
-    pri();
     check();
-    turn ++;
 
   }
 
@@ -190,7 +193,7 @@ public class master
         ((ir1.get(2)==ir2.get(1)) && (ir3.get(0)==ir2.get(1)) && (ir1.get(2)>0))
        )
     {
-      db();
+      pri();
       winner.youwin();
     }
     else if (
@@ -204,40 +207,40 @@ public class master
       ((ir1.get(2)==ir2.get(1)) && (ir3.get(0)==ir2.get(1)) && (ir1.get(2)<0))
             )
     {
-      db();
+      pri();
       winner.comwin();
     }
     if (turn==9)
     {
-
+      winner.draw();
     }
   }
 
 
-  public static void db()
-  {
-    System.out.print("turn=");
-    System.out.println(turn);
-    System.out.println(ir1);
-    System.out.println(ir2);
-    System.out.println(ir3);
-    System.out.print("rs1=");
-    System.out.println(rs1);
-    System.out.print("rs2=");
-    System.out.println(rs2);
-    System.out.print("rs3=");
-    System.out.println(rs3);
-    System.out.print("cs1=");
-    System.out.println(cs1);
-    System.out.print("cs2=");
-    System.out.println(cs2);
-    System.out.print("cs3=");
-    System.out.println(cs3);
-    System.out.print("xs1=");
-    System.out.println(xs1);
-    System.out.print("xs2=");
-    System.out.println(xs2);
-
-
-  }
+  // public static void db()
+  // {
+  //   System.out.print("turn=");
+  //   System.out.println(turn);
+  //   System.out.println(ir1);
+  //   System.out.println(ir2);
+  //   System.out.println(ir3);
+  //   System.out.print("rs1=");
+  //   System.out.println(rs1);
+  //   System.out.print("rs2=");
+  //   System.out.println(rs2);
+  //   System.out.print("rs3=");
+  //   System.out.println(rs3);
+  //   System.out.print("cs1=");
+  //   System.out.println(cs1);
+  //   System.out.print("cs2=");
+  //   System.out.println(cs2);
+  //   System.out.print("cs3=");
+  //   System.out.println(cs3);
+  //   System.out.print("xs1=");
+  //   System.out.println(xs1);
+  //   System.out.print("xs2=");
+  //   System.out.println(xs2);
+  //
+  //
+  // }
 }
