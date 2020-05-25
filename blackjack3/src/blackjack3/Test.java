@@ -7,15 +7,16 @@ import java.util.Scanner;
 
 public class Test {
 
-	public static Card card = new Card();
-	public static Com com = new Com();
-	public static Player player = new Player();
+	private  static Card card = new Card();
+	private  static Com com = new Com();
+	private  static Player player = new Player();
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		card.start();
-		CardStartCheck();
-		CardGiveCheck();
+		// CardStartCheck();
+		// CardGiveCheck();
+		Comcheck();
 	}
 
 	public static void CardStartCheck() {
@@ -30,4 +31,50 @@ public class Test {
 		 System.out.println(card.Box);
 	 }
 
+	public static void PlayerCheck(){
+		player.reset();
+		player.setter(card.give());
+		player.setter(card.give());
+		player.check();
+		boolean choice = player.choice();
+		if (choice == true) {
+			System.out.println("hit");
+		}
+		else {
+			System.out.println("stand");
+		}
+		boolean check = player.check();
+		if (check == true) {
+			System.out.println("burst");
+		}
+		else {
+			System.out.println("safe");
+		}
+		System.out.println(player.getsum());
+		// System.out.println("choice:"+player.choice());
+		// System.out.println("check:"+player.check());
+
+	}
+
+	public static void Comcheck(){
+		com.reset();
+		com.setter(card.give());
+		com.setter(card.give());
+		com.check();
+		boolean choice = com.choice();
+		if (choice == true) {
+			System.out.println("hit");
+		}
+		else {
+			System.out.println("stand");
+		}
+		boolean check = com.check();
+		if (check == true) {
+			System.out.println("burst");
+		}
+		else {
+			System.out.println("safe");
+		}
+		System.out.println(com.getsum());
+	}
 }

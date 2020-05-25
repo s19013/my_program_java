@@ -1,2 +1,42 @@
 1.ほしいかどうか入力する
 2.バーストしたらバースト宣言する
+
+Playerdeck int型のArrayList
+Playersum int型の変数
+
+reset()　帰り値なし
+　Playerdeckの中身をすべて消す
+
+setter(int A)　帰り値なし
+  Playerdeck ← A 
+
+choice() boolean型
+  str string型の変数
+  answer = false boolean型の変数
+  PlayerdeckとPlayersumを表示
+　hかsを入力させる
+  str ← 入力した値
+　strを小文字化
+
+  str == "h" || "hit" の時
+　　answer　←　true
+　str == "s" || "stand"の時
+　　answer　←　false
+　その他の時
+  　choice()を呼ぶ
+　answerを返す
+
+check()　boolean型
+  Playersumを0で初期化する
+  Playerdeckの中の数字すべて足す
+  Playersum ←　計算結果
+　Playersum >　21の時
+　　trueを返す
+  それ以外の時
+　　falseを返す
+
+せっかくいい感じにできたからcomに継承できるものは継承する
+  
+  
+  
+  

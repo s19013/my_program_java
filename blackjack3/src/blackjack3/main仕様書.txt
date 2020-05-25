@@ -2,3 +2,31 @@
 2.playerとcomにカードがほしいか聞く
   ほしいときはcardクラスから一枚取り出す
   いらないときは飛ばす
+
+main()
+
+
+reset()
+  Player.reset()とcom.reset()を呼び出す
+
+start()
+  両者にカードをcard.give()で2枚ずつ配る
+ 
+check()
+  player.check()とcom.checkを呼び出す
+  trueかfalseかしらべる
+  どちらかがtureだったら
+　　burst()に移る
+　どちらもfalseだったら
+　　battle()に移る
+
+battle()
+  両者の合計を比較する、大きい方を勝者とする
+
+burst()
+  両者がバーストした時
+　　引き分け
+　片方がバースト
+　　もう片方の勝ち
+
+とりあえず　今は継承を使わないで完成させる
