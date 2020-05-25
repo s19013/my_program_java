@@ -95,20 +95,24 @@ public class Main {
 	}
 
 	public static boolean retry(){
+		boolean InOk = false;
 		boolean answer = true;
-		System.out.println("もう一度やりますか");
-		Scanner scan = new Scanner(System.in);
-    String str = scan.nextLine();
-		str.toLowerCase();
-		if (str.equals("yes") || str.equals("y")) {
-			answer=true;
-		}
-		else if (str.equals("n") || str.equals("no")) {
-			answer=false;
-		}
-		else {
-			System.out.println("入力し直し");
-			retry();
+		while (InOk == false) {
+			System.out.println("もう一度やりますか (yesかnoを入力してEnterキーを押してください)");
+			Scanner scan = new Scanner(System.in);
+	    String str = scan.nextLine();
+			str.toLowerCase();
+			if (str.equals("yes") || str.equals("y")) {
+				answer=true;
+				InOk = true;
+			}
+			else if (str.equals("n") || str.equals("no")) {
+				answer=false;
+				InOk = true;
+			}
+			else {
+				System.out.println("入力し直し");
+			}
 		}
 		return answer;
 	}
@@ -125,8 +129,6 @@ public class Main {
 		}
 		if (CanBattle == true) {
 			battle();
-		}
-		else {
 		}
 	}
 

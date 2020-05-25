@@ -7,7 +7,6 @@ import java.util.Collections;
 public class Com{
   private  ArrayList<Integer> deck = new ArrayList<Integer>();
   private  int sum = 0;
-  private String name;
 
   public void reset(){
     this.deck.clear();

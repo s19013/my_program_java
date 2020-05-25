@@ -31,22 +31,26 @@ public class Player {
   }
 
   public  Boolean choice(){
+    boolean InOk = false;
     Boolean answer = false;
-    System.out.println(this.deck);
-    System.out.println("あなたの合計" + this.sum);
-    System.out.println("hit or stand? (hかsを入力してEnterキーを押してください)");
-    Scanner scan = new Scanner(System.in);
-    String str = scan.nextLine();
-    str.toLowerCase();
-    if (str.equals("h") || str.equals("hit")) {
-      answer = true;
-    }
-    else if (str.equals("s") || str.equals("stand") ) {
-      answer = false;
-    }
-    else{
-      System.out.println("入力し直してください");
-      choice();
+    while (InOk == false) {
+      System.out.println(this.deck);
+      System.out.println("あなたの合計" + this.sum);
+      System.out.println("hit or stand? (hかsを入力してEnterキーを押してください)");
+      Scanner scan = new Scanner(System.in);
+      String str = scan.nextLine();
+      str.toLowerCase();
+      if (str.equals("h") || str.equals("hit")) {
+        answer = true;
+        InOk = true;
+      }
+      else if (str.equals("s") || str.equals("stand") ) {
+        answer = false;
+        InOk = true;
+      }
+      else{
+        System.out.println("入力し直してください");
+      }
     }
     return answer;
   }
