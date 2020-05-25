@@ -1,32 +1,76 @@
-1.cardクラスから2つずつ取り出してそれぞれのリストに入れる
-2.playerとcomにカードがほしいか聞く
-  ほしいときはcardクラスから一枚取り出す
-  いらないときは飛ばす
-
+CanBattle boolean型の変数
+playing boolean型の変数
 main()
+　playingがtrueである限りくりかえす
+　　game()を呼び出す
+　　playing　←　retry()の帰り値
 
 
-reset()
+reset() void
+  canbattleをtrueに初期化する
   Player.reset()とcom.reset()を呼び出す
 
-start()
+start() void
   両者にカードをcard.give()で2枚ずつ配る
- 
-check()
-  player.check()とcom.checkを呼び出す
-  trueかfalseかしらべる
-  どちらかがtureだったら
-　　burst()に移る
-　どちらもfalseだったら
-　　battle()に移る
+　com.check()とplayer.check()を呼び出す 
 
-battle()
+PlayerChoice() void
+  player.choice()がtrueを返す時
+   カードを1枚渡す
+　　player.check()がfalseの時
+　　　自分を呼び出す
+　　player.check()がtrueの時　　
+      操作を終わらせる(何も起こさない)
+
+ComChoice() void
+  com.choice()がtrueの時
+　　カードを一枚渡す
+　com.check()がfalseの時
+　　自分を呼び出す
+
+burst() void
+　com.check()とplayer.check()がtrueを返す時
+　　Canbattle　←　false
+　com.check()がtrueを返す時
+　　Canbattle　←　false
+　　result("コンピュータ")を呼び出す
+　player.check()がtrueを返す時
+　　Canbattle　←　false
+　　result("プレイヤー")を呼び出す
+
+battle() void
   両者の合計を比較する、大きい方を勝者とする
+　　result(勝った方)
+　引き分け
+　　result("draw")
 
-burst()
-  両者がバーストした時
-　　引き分け
-　片方がバースト
-　　もう片方の勝ち
+retry()
+  answer boolean型の変数
+　str string型の変数
+　str ←　入力した文字
+　strを小文字化する
+　str == yes || str == y
+　　answer　←　true
+  str == no || str == n
+    answer　←　false
+  他のパターン
+　　自分を呼び出す
+　
+　answerを返す
+
+game()
+　reset()を呼び出す
+　start()を呼び出す
+　burst()を呼び出す
+　Canbattle　== trueの時
+    PlayerChoice()
+　　ComChoice()
+　　burst()
+　Canbattle　== trueの時
+    battle()
+　　
+　
+  
+
 
 とりあえず　今は継承を使わないで完成させる

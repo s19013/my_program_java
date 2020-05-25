@@ -9,15 +9,6 @@ import java.util.Scanner;
 public class Player {
   private  ArrayList<Integer> deck = new ArrayList<Integer>();
   private  int sum = 0;
-  private String name;
-
-  public void setname(String name){
-    this.name = name;
-  }
-
-  public String getname(){
-    return this.name;
-  }
 
   public void reset(){
     this.deck.clear();
@@ -39,10 +30,6 @@ public class Player {
     }
   }
 
-  public  int getsum(){
-    return this.sum;
-  }
-
   public  Boolean choice(){
     Boolean answer = false;
     System.out.println(this.deck);
@@ -62,6 +49,10 @@ public class Player {
       choice();
     }
     return answer;
+  }
+
+  public  int getsum(){
+    return this.sum;
   }
 
   // public  Boolean answer(boolean A){

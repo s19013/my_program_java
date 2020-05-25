@@ -9,14 +9,6 @@ public class Com{
   private  int sum = 0;
   private String name;
 
-  public void setname(String name){
-    this.name = name;
-  }
-
-  public String getname(){
-    return this.name;
-  }
-
   public void reset(){
     this.deck.clear();
   }

@@ -1,19 +1,27 @@
 1.ほしいかどうか入力する
 2.バーストしたらバースト宣言する
-
-Playerdeck int型のArrayList
-Playersum int型の変数
+deck int型のArrayList
+sum int型の変数
 
 reset()　帰り値なし
-　Playerdeckの中身をすべて消す
+　deckの中身をすべて消す
 
 setter(int A)　帰り値なし
-  Playerdeck ← A 
+  deck ← A 
+
+check()　boolean型
+  sumを0で初期化する
+  deckの中の数字すべて足す
+  sum ←　計算結果
+　sum >　21の時
+　　trueを返す
+  それ以外の時
+　　falseを返す
 
 choice() boolean型
   str string型の変数
   answer = false boolean型の変数
-  PlayerdeckとPlayersumを表示
+  deckとsumを表示
 　hかsを入力させる
   str ← 入力した値
 　strを小文字化
@@ -26,16 +34,12 @@ choice() boolean型
   　choice()を呼ぶ
 　answerを返す
 
-check()　boolean型
-  Playersumを0で初期化する
-  Playerdeckの中の数字すべて足す
-  Playersum ←　計算結果
-　Playersum >　21の時
-　　trueを返す
-  それ以外の時
-　　falseを返す
+getsum() int型
+　sumを返す
 
-せっかくいい感じにできたからcomに継承できるものは継承する
+
+
+せっかくいい感じにできたからcomに継承できるものは継承する(うまくいかなかった)
   
   
   

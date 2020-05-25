@@ -32,12 +32,7 @@ public class Main {
 		player.check();
 	}
 
-	// public static void check(){
-	//
-	// }
-
 	public static void PlayerChoice(){
-
 		if (player.choice() == true) {
 			player.setter(card.give());
 			if (player.check()==false) {
