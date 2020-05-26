@@ -45,17 +45,18 @@ battle() void
 　　result("draw")
 
 retry()
+　InOk = false boolean型の変数
   answer boolean型の変数
 　str string型の変数
-　str ←　入力した文字
-　strを小文字化する
-　str == yes || str == y
-　　answer　←　true
-  str == no || str == n
-    answer　←　false
-  他のパターン
-　　自分を呼び出す
-　
+  InOk = falseである限りくりかえす
+　　str ←　入力した文字
+　　strを小文字化する
+　　str == yes || str == y
+　　　answer　←　true
+  　str == no || str == n
+    　answer　←　false
+　  他のパターン
+　　　無視
 　answerを返す
 
 game()

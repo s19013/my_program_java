@@ -4,12 +4,15 @@ deck int型のArrayList
 sum int型の変数
 
 reset()　帰り値なし
+「リセットするための関数」
 　deckの中身をすべて消す
 
 setter(int A)　帰り値なし
+「数字を受け取って、deckにいれるための関数」
   deck ← A 
 
 check()　boolean型
+「deckの中をすべて足して、21を超えるかどうか調べる」
   sumを0で初期化する
   deckの中の数字すべて足す
   sum ←　計算結果
@@ -18,20 +21,25 @@ check()　boolean型
   それ以外の時
 　　falseを返す
 
-choice() boolean型
-  str string型の変数
-  answer = false boolean型の変数
-  deckとsumを表示
-　hかsを入力させる
-  str ← 入力した値
-　strを小文字化
+//足すのとチェックするので分けた方がいい
 
-  str == "h" || "hit" の時
-　　answer　←　true
-　str == "s" || "stand"の時
-　　answer　←　false
-　その他の時
-  　choice()を呼ぶ
+choice() boolean型
+「プレイヤーにカードが欲しいか尋ねる関数」
+  str string型の変数
+　InOk = false boolean型の変数
+  answer = false boolean型の変数
+  InOk = falseである限りくりかえす
+　  deckとsumを表示
+　　hかsを入力させる
+　  str ← 入力した値
+　　strを小文字化
+
+　  str == "h" || "hit" の時
+　　　answer　←　true
+　　str == "s" || "stand"の時
+　　　answer　←　false
+　　その他の時
+  　　何もしない
 　answerを返す
 
 getsum() int型
@@ -40,6 +48,9 @@ getsum() int型
 
 
 せっかくいい感じにできたからcomに継承できるものは継承する(うまくいかなかった)
+
+プレイヤーとcomの共通する部分を作ってそれぞれ継承して、異なる部分を作るやり方
+
   
   
   
