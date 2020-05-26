@@ -1,0 +1,8 @@
+playerから継承
+
+choice()
+　「deckの合計が17以下の時カードを引く」
+　getsum() < 17の時
+　　trueを返す
+　それ以外
+　　falseを返す
