@@ -2,11 +2,11 @@ package blackjack4;
 import java.util.Scanner;
 
 public class Main {
-  public static Card card = new Card();
-	public static Com com = new Com();
-	public static Player player = new Player();
-	public static boolean CanBattle = true;
-	public static boolean playing = true;
+  private static Card card = new Card();
+	private static Com com = new Com();
+	private static Player player = new Player();
+	private static boolean CanBattle = true;
+	private static boolean playing = true;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		while (playing == true) {

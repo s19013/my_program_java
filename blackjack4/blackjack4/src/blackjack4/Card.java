@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Random;
 
 public class Card {
-  public static ArrayList<Integer> Box = new ArrayList<Integer>();
+  private static ArrayList<Integer> Box = new ArrayList<Integer>();
   public static void start(){
     for (int i=0; i < 4; i++) {
       for (int a=1; a <= 13; a++) {
