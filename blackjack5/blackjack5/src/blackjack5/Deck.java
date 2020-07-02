@@ -3,8 +3,13 @@ package blackjack5;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public abstract class Deck implements DeckInterface {
+public class Deck implements DeckInterface {
 	private ArrayList<ArrayList<String>> Cards = new ArrayList<ArrayList<String>>();
+	
+	@Override
+	public void Reset(){
+		Cards.clear();
+	}
 
 	@Override
 	public void getCard(String[] arg) {
@@ -31,13 +36,18 @@ public abstract class Deck implements DeckInterface {
 		return result;
 	}
 
+	public int AceSum(){
+		int result = sum() + 10;
+		return result;
+	}
+
 	@Override
 	public boolean CheckAce() {
 		ArrayList <String> box = new ArrayList<>();
 		for (int i=0;i<Cards.size() ;i++) {
 			box.add(Cards.get(i).get(1));
 		}
-		return box.contains("A");
+		return burst()==false && box.contains("A");
 	}
 
 	@Override
@@ -52,6 +62,22 @@ public abstract class Deck implements DeckInterface {
 	@Override
 	public boolean BlackJack() {
 		return CheckAce()==true && CheckJQK()==true && burst()==false ;
+	}
+
+	@Override
+	public void Screan(){
+		ArrayList <String> box = new ArrayList<>();
+		for (int i =0 ;i<Cards.size() ;i++) {
+			box.add(Cards.get(i).get(0)+Cards.get(i).get(1));
+		}
+		System.out.println("あなたの手札"+box);
+		if (AceSum()<22 && CheckAce()==true) {
+			System.out.println("合計:"+sum());
+			System.out.println("Aを11として考えると:"+AceSum());
+		}
+		else {
+			System.out.println("合計:"+sum());
+		}
 	}
 
 	@Override

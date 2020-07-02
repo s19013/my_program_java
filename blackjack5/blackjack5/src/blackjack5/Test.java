@@ -3,10 +3,12 @@ import java.util.ArrayList;
 
 public class Test {
 	static MasterCards mc = new MasterCards();
-	static PlayerDeck pd = new PlayerDeck();
+	static Deck deck = new Deck();
+	static Human h = new Human();
+	static Com c = new Com();
 	public static void main(String[] args) {
 		mc.setUP();
-		TestBlackJack();
+		TestPlayerChoice();
 	}
 
 	public static void TestShowCards(){
@@ -26,17 +28,17 @@ public class Test {
 	}
 
 	public static void TestShowPlayerDeck(){
-		pd.getCard(mc.giveCard());
-		pd.getCard(mc.giveCard());
-		pd.dbshowDeck();
+		deck.getCard(mc.giveCard());
+		deck.getCard(mc.giveCard());
+		deck.dbshowDeck();
 	}
 
 	public static void TestPlayerdeckSum(){
-		System.out.println(pd.sum());
+		System.out.println(deck.sum());
 	}
 
 	public static void TestPlayerdeckBurst(){
-		System.out.println(pd.burst());
+		System.out.println(deck.burst());
 	}
 
 	public static void TestPlayerdeckStream(){
@@ -47,21 +49,46 @@ public class Test {
 
 	public static void TestCheckAce(){
 		String[] box = {"S","A","1"};
-		pd.getCard(box);
-		System.out.println(pd.CheckAce());
+		deck.getCard(box);
+		System.out.println(deck.CheckAce());
 	}
 
 	public static void TestCheckJQK(){
 		String[] box = {"S","J","10"};
-		pd.getCard(box);
-		System.out.println(pd.CheckJQK());
+		deck.getCard(box);
+		System.out.println(deck.CheckJQK());
 	}
 
 	public static void TestBlackJack(){
 		String[] box = {"S","J","10"};
 		String[] box2 = {"S","A","1"};
-		pd.getCard(box);
-		pd.getCard(box2);
-		System.out.println(pd.BlackJack());
+		deck.getCard(box);
+		deck.getCard(box2);
+		System.out.println(deck.BlackJack());
+	}
+
+	public static void TestPlayerChoice(){
+		String[] box2 = {"S","A","1"};
+		h.getCard(box2);
+		h.getCard(mc.giveCard());
+		h.Screan();
+		boolean a =h.Choice();
+		System.out.println(a);
+		if (a==true) {
+			h.getCard(mc.giveCard());
+			h.Screan();
+		}
+		else {
+			//nothing
+		}
+	}
+
+	public static  void TestComChoice(){
+		c.getCard(mc.giveCard());
+		c.getCard(mc.giveCard());
+		c.getCard(mc.giveCard());
+		c.Screan();
+		boolean a = c.Choice();
+		System.out.println(a);
 	}
 }
