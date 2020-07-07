@@ -6,9 +6,10 @@ public class Test {
 	static Deck deck = new Deck();
 	static Human h = new Human();
 	static Com c = new Com();
+	static Master m = new Master();
 	public static void main(String[] args) {
-		mc.setUP();
-		TestPlayerChoice();
+		// mc.setUP();
+		TestHumanTurn();
 	}
 
 	public static void TestShowCards(){
@@ -72,15 +73,6 @@ public class Test {
 		h.getCard(box2);
 		h.getCard(mc.giveCard());
 		h.Screan();
-		boolean a =h.Choice();
-		System.out.println(a);
-		if (a==true) {
-			h.getCard(mc.giveCard());
-			h.Screan();
-		}
-		else {
-			//nothing
-		}
 	}
 
 	public static  void TestComChoice(){
@@ -90,5 +82,11 @@ public class Test {
 		c.Screan();
 		boolean a = c.Choice();
 		System.out.println(a);
+	}
+
+	public static void TestHumanTurn(){
+		m.Reset();
+		m.First();
+		m.HumanTurn();
 	}
 }

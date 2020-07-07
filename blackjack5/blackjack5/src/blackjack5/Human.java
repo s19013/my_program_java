@@ -9,6 +9,7 @@ public class Human extends player {
 	@Override
 	public boolean Choice() {
 		while (Checker) {
+			Screan();
 	  	System.out.println("HIT or STAND:");
 	  	s = scan.nextLine();
 	  	s=s.toLowerCase();

@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class Deck implements DeckInterface {
 	private ArrayList<ArrayList<String>> Cards = new ArrayList<ArrayList<String>>();
-	
+
 	@Override
 	public void Reset(){
 		Cards.clear();
@@ -77,6 +77,15 @@ public class Deck implements DeckInterface {
 		}
 		else {
 			System.out.println("合計:"+sum());
+		}
+	}
+
+	public int giveResult(){
+		if (AceSum()<22 && CheckAce()==true){
+			return AceSum();
+		}
+		else {
+			return sum();
 		}
 	}
 

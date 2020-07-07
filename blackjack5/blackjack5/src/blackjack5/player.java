@@ -39,6 +39,10 @@ public abstract class player {
     deck.Screan();
   }
 
+  public int giveResult(){
+    return deck.giveResult();
+  }
+
   public void dbshowDeck(){
     deck.dbshowDeck();
   }
